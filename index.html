@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <title>What</title>
+    <style>
+        body{
+            background-color: rgb(255, 0, 0);
+        }
+
+        h1{
+            color:white;
+            text-align: center;
+            font-size: 70px;
+            font-family: 'Fredoka One', cursive;
+        }
+
+        #block1{
+            color: rgb(255, 0, 0);
+            font-family: 'Fredoka One', cursive;
+            position: absolute;
+            left: 200px;
+            bottom: 200px;
+            background-color: white;
+            width:300px;
+            height:300px;
+            font-size: 40px;
+        }
+
+        #block2{
+            color: rgb(255, 0, 0);
+            font-family: 'Fredoka One', cursive;
+            position: absolute;
+            right: 620px;
+            bottom: 200px;
+            background-color: white;
+            width:300px;
+            height:300px;
+            font-size: 40px;
+        }
+
+        #block3{
+            color: rgb(255, 0, 0);
+            font-family: 'Fredoka One', cursive;
+            position: absolute;
+            right: 200px;
+            bottom: 200px;
+            background-color: white;
+            width:300px;
+            height:300px;
+            font-size: 40px;
+        }
+
+        #feedback{
+            position: absolute;
+            color: white;
+            font-family: 'Fredoka One', cursive;
+            right:730px;
+            bottom: 100px;
+            font-size: 35px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Rock Paper Scissors</h1>
+
+    <div id="block1">Scissors</div>
+
+    <div id="block2">Paper</div>
+
+    <div id="block3">Rock</div>
+
+    <div id="feedback"></div>
+
+
+
+    <script>
+        const scissors = document.getElementById('block1');
+        const paper = document.getElementById('block2');
+        const rock = document.getElementById('block3');
+        const feedback = document.getElementById('feedback');
+
+        var sign = getSign();
+        console.log(sign);
+        rock.addEventListener('click', clickRock);
+        paper.addEventListener('click', clickPaper);
+        scissors.addEventListener('click', clickScissors);
+
+        function getSign() {
+            var sign;
+            var num = Math.floor(Math.random() * 3 + 1);
+            if (num == 1) {
+                sign = "paper";
+            } else if(num == 2) {
+                sign = "rock";
+            } else if(num == 3) {
+                sign = "scissors";
+            }
+            return sign;
+            console.log(sign);
+        }
+
+        function clickRock() {
+            if(sign == "rock") {
+                feedback.textContent = "Tie";
+            } else if (sign == "paper") {
+                feedback.textContent = "Loser";
+            } else if (sign == "scissors") {
+                feedback.textContent = "Winner";
+            }
+        }
+
+        function clickPaper() {
+            if(sign == "paper") {
+                feedback.textContent = "Tie";
+            } else if (sign == "scissors") {
+                feedback.textContent = "Loser";
+            } else if (sign == "rock") {
+                feedback.textContent = "Winner";
+            }
+        }
+
+        function clickScissors() {
+            if(sign == "scissors") {
+                feedback.textContent = "Tie";
+            } else if (sign == "rock") {
+                feedback.textContent = "Loser";
+            } else if (sign == "paper") {
+                feedback.textContent = "Winner";
+            }
+        }
+
+    </script>
+    
+    
+</body>
+</html>
